@@ -1,0 +1,189 @@
+@import "compass";
+
+/*
+ * "ほのか明朝" licensed under the IPA Font License Agreement v1.0
+ * http://fontfree.me/966（配布元のURL）
+ * http://ipafont.ipa.go.jp/（IPAフォントのURL）
+ * http://ipafont.ipa.go.jp/ipa_font_license_v1.html（IPAフォントライセンスv1.0のURL）
+ */
+@font-face{
+  font-family:'Glyphicons Halflings';
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
+  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix")format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$blue: #e6eeef;
+$namecolor: #b95353;
+
+@mixin boxBase($margin: 30px auto, $padding: 10px) {
+  margin: $margin;
+  padding: $padding;
+}  
+  
+
+html{
+  box-sizing: border-box;
+}
+
+body, html{
+  height: 100%;
+  background-color: $blue;
+}
+
+h1, h2, h3, h4, body {
+  line-height: 1.60;
+  letter-spacing: 0.17em;
+  color: black;
+  font-family: "YuGothic", ;
+  margin:0;//これでヘッダーの高さが落ち着いた
+}
+
+ul, li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: gray;
+  }
+}
+
+header.header {
+  border-bottom: gray;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  div.header__bar.row {
+    display: flex;
+    h1.grid-6 {
+      font-size: 20px;
+      float: left;
+      a {
+        display: block;
+        color: #f1faff;
+        text-shadow: 1px 1px 2px black, 0 0 1em blue;/* タイトルに影をつけている*/
+        font: 1.5em Georgia, serif;
+      }
+    }
+    div.grid-6 {
+      float: right;
+    }
+  }
+  .user_nav {
+    padding: 5px;
+    position: relative;
+    height: 100px;
+    position: absolute;
+    right: 0;
+    span {
+      top: 5px;
+      display: block;
+      float: left;
+      margin-left: 30px;
+      &:after {
+        content: '≡';
+        font-size: .7em;
+        margin-left: -4px;
+      }
+      &:hover ul {
+        color: $namecolor;
+        display: block;
+      }
+    }
+    ul {
+      border-left: 1px solid #d8d8d8;
+      border-right: 1px solid #d8d8d8;
+      display: none;
+      position: absolute;
+      li {
+        background-color:#f0f0f0;
+        padding: 5px;
+        a {
+          padding: 10px 20px;
+          border-bottom: 1px solid #d8d8d8;
+
+        }
+      }
+    }
+  }
+}
+
+div.contents.row {
+  padding: 60px;
+  
+  div.content_post {
+    background-color: #fff0f0;
+    padding: 5px;
+    margin-top: 3px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 3px;
+    
+    .name {
+      text-align: right;
+      margin-right: 20px;
+     a {
+       color:$namecolor;
+     }
+    }
+    
+    .article {
+      display: flex;/* イメージとメニューを横に並べるためにartucleクラスを作ってflex設定した*/
+    }
+    .content_image{
+      width: 20%;
+      text-align: left;
+    }
+    
+    div.article_main{
+      margin-left: 20px;
+      h3 {
+        font-size: 150%;
+        font: 1.5em Georgia, serif;
+      }
+    }
+  }
+  div.random {
+    
+  }
+}
+
+.container {
+  box-sizing: border-box;
+}
+
+
+form {
+  h3 {
+    text-align: center;
+  }
+  input, textarea {
+    width: 100%;
+  }
+  input[type="submit"]{
+    background-color: lightpink;
+    border-radius: 15px;
+    &:hover {
+      background-color: lighten(lightpink, 10%);
+    }
+  }
+}
+
+footer {
+  margin: 0;
+  height: 50px;
+  background-color: #d2e3ec;
+  color: black;
+  font-size: 11px;
+  text-align: center;
+  line-height: 50px;
+  letter-spacing: 0.3em;
+  
+}

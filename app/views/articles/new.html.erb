@@ -1,0 +1,14 @@
+<div class="contents row">
+  <div class="container">
+    <%= form_tag('/articles', method: :post) do %>
+      <h3>メニューを投稿する</h3>
+      <input type="text" name="image" placeholder='写真'>
+      <input type="text" name="title" placeholder='メインのおかず'>
+      <textarea name="text" rows="3">一品目：
+      二品目：
+      三品目：
+      </textarea>
+      <input type="submit" value="投稿する">
+    <% end %>
+  </div>
+</div>
