@@ -3,19 +3,20 @@
     <div class="content_post">
       <span class="name">
         <a href="">
-          <span>投稿者 </span><!--<#%= article.user.nickname %>-->
+          <span>投稿者 </span><%= current_user.nickname %>
         </a>
       </span>
       
-      <!--<#% if user_signed_in? && current_user.id == article.user_id %>-->
-      <!--  <div class="move">-->
-      <!--    <span><#%= image_tag 'arrow_top1.png' %></span>-->
-      <!--    <ul class="move_list">-->
-      <!--      <li><#%= link_to '編集', "/articles/#{article.id}/edit", method: :get %></li>-->
-      <!--      <li><#%= link_to'削除', "/articles/#{article.id}", method: :delete %></li>-->
-      <!--    </ul>-->
-      <!--  </div>-->
-      <!--<#% end %>-->
+      <% if user_signed_in? && current_user.id == article.user_id %>
+        <div class="move">
+          <span><%= image_tag 'arrow_top1.png' %></span>
+          <ul class="move_list">
+            <li><%= link_to '詳細', "/articles/#{article.id}", method: :get %></li>
+            <li><%= link_to '編集', "/articles/#{article.id}/edit", method: :get %></li>
+            <li><%= link_to'削除', "/articles/#{article.id}", method: :delete %></li>
+          </ul>
+        </div>
+      <% end %>
       
       <div class="article">
         <img src="<%= article.image %>" class="content_image">
@@ -26,4 +27,5 @@
       </div>
     </div>
   <% end %>
+  <%= paginate(@articles) %>
 </div>
